@@ -1,6 +1,6 @@
 # tech-check-skills
 
-Скиллы для Claude Code: технадзор за кодом, который пишет ИИ-агент.
+Я Влад Коновалов, 11 лет в разработке, 8 из них руководил своим агентством. Сейчас делаю проекты сам или с минимальной командой, большую часть кода пишут агенты. Здесь скиллы для Claude Code, которыми я проверяю их работу.
 
 Агент быстро пишет код и уверенно отчитывается «готово, тесты проходят». Эти скиллы проверяют, правда ли это: по диффу, запускам и запросам, а не по словам. Общие правила у всех:
 
@@ -26,19 +26,13 @@
 
 ## Установка
 
-Все скиллы для своего пользователя, одной командой (нужен доступ к репозиторию):
-
-```bash
-gh repo clone Dev1love/tech-check-skills /tmp/tech-check-skills && mkdir -p ~/.claude/skills && cp -R /tmp/tech-check-skills/skills/* ~/.claude/skills/
-```
-
-Только в один проект: копировать в `.claude/skills/` проекта вместо `~/.claude/skills/`.
-
-Если репозиторий публичный, можно без клона:
+Все скиллы для своего пользователя, одной командой:
 
 ```bash
 mkdir -p ~/.claude/skills && curl -sL https://github.com/Dev1love/tech-check-skills/archive/refs/heads/main.tar.gz | tar xz --strip-components=2 -C ~/.claude/skills tech-check-skills-main/skills
 ```
+
+Только в один проект: заменить `~/.claude/skills` на `.claude/skills` в папке проекта.
 
 ## Как запускать
 
