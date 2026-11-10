@@ -10,7 +10,7 @@ SKILL="${1:?usage: run-skill.sh <skill> <work-dir>}"
 WORK="${2:?usage: run-skill.sh <skill> <work-dir>}"
 
 case "$SKILL" in
-  principles-review) ARGS="ревью изменений ветки feature/3-orders относительно main" ;;
+  dry-kiss-yagni) ARGS="ревью изменений ветки feature/3-orders относительно main" ;;
   test-auditor)      ARGS="аудит тестов в изменениях ветки feature/3-orders относительно main" ;;
   security-audit)    ARGS="аудит всего проекта перед релизом. Живого сайта нет, приложение можно поднимать только локально" ;;
   verify-claims)     ARGS="агент отчитался о готовности задач #3 и #4: отчёт в AGENT_REPORT.md, задачи в TASKS.md, ветка feature/3-orders, base main" ;;

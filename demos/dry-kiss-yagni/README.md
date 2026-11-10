@@ -1,4 +1,4 @@
-# Демо: principles-review
+# Демо: dry-kiss-yagni
 
 **Три исхода: править, решать вам, оставить**
 
@@ -6,10 +6,10 @@
 
 ## Запуск
 ```bash
-demos/run.sh principles-review              # интерактивно, для сцены
-demos/run.sh principles-review --headless   # репетиция: печатает отчёт
+demos/run.sh dry-kiss-yagni              # интерактивно, для сцены
+demos/run.sh dry-kiss-yagni --headless   # репетиция: печатает отчёт
 ```
-Запрос к скиллу: `demos/principles-review/prompt.txt`. Пример готового отчёта: [`sample-report.md`](sample-report.md) (запасной вариант, если живой прогон не успеет).
+Запрос к скиллу: `demos/dry-kiss-yagni/prompt.txt`. Пример готового отчёта: [`sample-report.md`](sample-report.md) (запасной вариант, если живой прогон не успеет).
 
 ## Что заложено
 Этот файл в копию для скилла не попадает.

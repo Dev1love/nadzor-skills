@@ -1,6 +1,6 @@
 ---
-name: principles-review
-description: Ревью изменений по принципам KISS, DRY, YAGNI, SRP, DIP плюс имена и комментарии, с проверкой баланса (не переусложнить исправлениями). Используй в конце задачи перед коммитом или PR. Триггеры (RU) «ревью по принципам», «principles review», «проверь SRP и DIP», «проверь на переусложнение и связанность», «бизнес-логика в роутах», «/principles-review»; (EN) "principles review", "KISS DRY YAGNI SRP DIP review", "check for overengineering and coupling".
+name: dry-kiss-yagni
+description: Ревью изменений по принципам DRY, KISS, YAGNI плюс SRP и DIP, имена и комментарии, с проверкой баланса: спорное выносит человеку. Используй в конце задачи перед коммитом или PR. Триггеры (RU) «dry kiss yagni», «проверь принципы», «проверь на переусложнение», «нет ли лишнего кода», «проверь имена и комментарии», «проверь SRP и DIP», «бизнес-логика в роутах», «/dry-kiss-yagni»; (EN) "dry kiss yagni review", "check for overengineering", "dead code check", "naming and comments review", "SRP DIP review".
 ---
 
 # Ревью по принципам: KISS / DRY / YAGNI / SRP / DIP

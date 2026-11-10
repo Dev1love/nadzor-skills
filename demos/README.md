@@ -19,7 +19,7 @@ demos/run.sh verify-claims --headless   # репетиция: отчёт в те
 |---|---|---|---|
 | 1 | [verify-claims](verify-claims/README.md) | «Скидки готовы, тесты проходят» | доклад агента против диффа и запусков |
 | 2 | [test-auditor](test-auditor/README.md) | 5 зелёных тестов на снятие денег | саботаж: код сломан, тесты зелёные |
-| 3 | [principles-review](principles-review/README.md) | Письмо и чек после заказа | три исхода: править, решать вам, оставить |
+| 3 | [dry-kiss-yagni](dry-kiss-yagni/README.md) | Письмо и чек после заказа | три исхода: править, решать вам, оставить |
 | 4 | [security-audit](security-audit/README.md) | Заметки | Боб читает Алису и делает себя админом, доказано запросами |
 | 5 | [leak-guard](leak-guard/README.md) | Лендинг с заявками | светофор для не разработчика, ключ в истории git |
 | 6 | [task-trail](task-trail/README.md) | «Почему лимит 7000?» | цепочка «строка, коммит, задача» и где она рвётся |
@@ -36,8 +36,8 @@ demos/run.sh verify-claims --headless   # репетиция: отчёт в те
 | Демо | Длина (×2) |
 |---|---|
 | verify-claims | 36 с |
-| test-auditor | 49 с |
-| principles-review | 40 с |
+| test-auditor | 48 с |
+| dry-kiss-yagni | 38 с |
 | security-audit | 90 с |
 | leak-guard | 21 с |
 | task-trail | 23 с |

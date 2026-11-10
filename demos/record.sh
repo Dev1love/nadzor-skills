@@ -19,7 +19,7 @@ CAST="$OUT/$DEMO.cast"
 # Recording flags: no permission prompts, no personal status line.
 FLAGS="--permission-mode bypassPermissions --settings $ROOT/recording-settings.json"
 tmux new-session -d -s "$SESSION" -x "$COLS" -y "$ROWS" \
-  "cd '$ROOT/..' && TMPDIR=/tmp TECH_CHECK_CLAUDE_FLAGS='$FLAGS' asciinema rec -q --overwrite -i 1.5 --window-size ${COLS}x${ROWS} -c '$ROOT/run.sh $DEMO' '$CAST'"
+  "cd '$ROOT/..' && TMPDIR=/tmp TECH_CHECK_CLAUDE_FLAGS='$FLAGS' asciinema rec -q --overwrite --window-size ${COLS}x${ROWS} -c '$ROOT/run.sh $DEMO' '$CAST'"
 
 screen() { tmux capture-pane -p -t "$SESSION" 2>/dev/null; }
 
