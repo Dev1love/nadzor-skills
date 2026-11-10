@@ -10,10 +10,10 @@
 
 | ID | Что | Где | Основной скилл | Также может найти |
 |---|---|---|---|---|
-| P1 | Дублированная логика расчёта: `POST /orders` считает сумму сам, а не через `pricing.calculateTotal`; копии разошлись (скидка без округления, бесплатная доставка от 5000 есть только в роуте). Preview и заказ дают разные суммы | `src/routes/orders.js` (POST /), `src/services/pricing.js` | dry-kiss-yagni | verify-claims |
-| P2 | Бизнес-логика в роуте: проверка остатков, промокода, расчёт, транзакция, списание остатков, уведомление в одном обработчике | `src/routes/orders.js` (POST /) | dry-kiss-yagni | |
-| P3 | Абстракция «на будущее»: фабрика каналов уведомлений с SMS/Push/Telegram, которые не реализованы, и опции `retries/priority/template/locale`, которые никто не читает. Задача просит только письмо | `src/notifications/index.js` | dry-kiss-yagni | verify-claims |
-| P4 | Прямой импорт БД и `new Date()` в бизнес-логике: `findValidPromo` нельзя протестировать на конкретную дату, из-за этого тест на последний день промокода выключен | `src/services/orderService.js` | dry-kiss-yagni | test-auditor |
+| P1 | Дублированная логика расчёта: `POST /orders` считает сумму сам, а не через `pricing.calculateTotal`; копии разошлись (скидка без округления, бесплатная доставка от 5000 есть только в роуте). Preview и заказ дают разные суммы | `src/routes/orders.js` (POST /), `src/services/pricing.js` | dry-kiss-yagni-2 | verify-claims |
+| P2 | Бизнес-логика в роуте: проверка остатков, промокода, расчёт, транзакция, списание остатков, уведомление в одном обработчике | `src/routes/orders.js` (POST /) | dry-kiss-yagni-2 | |
+| P3 | Абстракция «на будущее»: фабрика каналов уведомлений с SMS/Push/Telegram, которые не реализованы, и опции `retries/priority/template/locale`, которые никто не читает. Задача просит только письмо | `src/notifications/index.js` | dry-kiss-yagni-2 | verify-claims |
+| P4 | Прямой импорт БД и `new Date()` в бизнес-логике: `findValidPromo` нельзя протестировать на конкретную дату, из-за этого тест на последний день промокода выключен | `src/services/orderService.js` | dry-kiss-yagni-2 | test-auditor |
 | P5 | Нет проверки владельца: `GET /api/orders/:id` отдаёт любой заказ по id (адрес, телефон) | `src/routes/orders.js` (GET /:id) | security-audit | verify-claims |
 | P6 | API отдаёт хеш пароля: `SELECT *` в `GET/PATCH /api/users/me` | `src/routes/users.js` | leak-guard | security-audit |
 | P7 | Вебхук без проверки подписи: любой может пометить заказ оплаченным; сумма не сверяется, повторы не отсекаются. `verifySignature` написан, но нигде не вызывается | `src/routes/webhooks.js`, `src/lib/paygate.js` | security-audit | verify-claims |
@@ -23,7 +23,7 @@
 | P11 | Пустой тест: проверяет только `ok(result)` и `total !== undefined` | `test/pricing.test.js` «calculateTotal returns result» | test-auditor | |
 | P12 | Дубль теста: два теста доставки для msk ловят одно и то же | `test/pricing.test.js` «shipping cost for Moscow» и «shipping is 300 for msk» | test-auditor | |
 | P13 | Тест мокает тестируемый код: `mock.method(pricing, 'calculateTotal')` и проверяет ответ мока | `test/pricing.test.js` «calculateTotal applies promo» | test-auditor | |
-| P14 | Хардкод под тест: `getShippingCost` всегда возвращает 300 (`TODO: shipping zones`), тесты проверяют ровно 300. Зоны из задачи не сделаны | `src/services/pricing.js`, `test/pricing.test.js` | verify-claims | test-auditor, dry-kiss-yagni |
+| P14 | Хардкод под тест: `getShippingCost` всегда возвращает 300 (`TODO: shipping zones`), тесты проверяют ровно 300. Зоны из задачи не сделаны | `src/services/pricing.js`, `test/pricing.test.js` | verify-claims | test-auditor, dry-kiss-yagni-2 |
 | P15 | Mass assignment + SQL-инъекция через имена полей: `PATCH /api/users/me` строит `UPDATE users SET <ключи тела>`; можно прислать `role: "admin"` | `src/routes/users.js` (PATCH /me) | security-audit | |
 
 ## Процесс: отчёт агента и след (5)
@@ -42,7 +42,7 @@
 
 | ID | Что | Где | Против какого скилла |
 |---|---|---|---|
-| D1 | Две похожие функции форматирования цены: меняются по разным причинам (чек для покупателя / CSV для программы бухгалтера), объединять не надо | `src/lib/format.js` | dry-kiss-yagni |
+| D1 | Две похожие функции форматирования цены: меняются по разным причинам (чек для покупателя / CSV для программы бухгалтера), объединять не надо | `src/lib/format.js` | dry-kiss-yagni-2 |
 | D2 | `ORDER BY ${orderBy}` выглядит как инъекция, но значение из whitelist | `src/server.js` (`/api/products`) | security-audit |
 | D3 | Каталог без авторизации: так задумано, задача #1 | `src/server.js` (`/api/products`) | security-audit, leak-guard |
 | D4 | Ссылка на админку скрывается на фронте, но и сервер проверяет роль (`requireAdmin`) | `public/app.js`, `src/routes/admin.js` | security-audit |

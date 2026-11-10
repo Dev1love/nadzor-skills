@@ -1,4 +1,4 @@
-# Демо: dry-kiss-yagni
+# Демо: dry-kiss-yagni-2
 
 **Три исхода: править, решать вам, оставить**
 
@@ -6,10 +6,10 @@
 
 ## Запуск
 ```bash
-demos/run.sh dry-kiss-yagni              # интерактивно, для сцены
-demos/run.sh dry-kiss-yagni --headless   # репетиция: печатает отчёт
+demos/run.sh dry-kiss-yagni-2              # интерактивно, для сцены
+demos/run.sh dry-kiss-yagni-2 --headless   # репетиция: печатает отчёт
 ```
-Запрос к скиллу: `demos/dry-kiss-yagni/prompt.txt`. Пример готового отчёта: [`sample-report.md`](sample-report.md) (запасной вариант, если живой прогон не успеет).
+Запрос к скиллу: `demos/dry-kiss-yagni-2/prompt.txt`. Пример готового отчёта: [`sample-report.md`](sample-report.md) (запасной вариант, если живой прогон не успеет).
 
 ## Что заложено
 Этот файл в копию для скилла не попадает.

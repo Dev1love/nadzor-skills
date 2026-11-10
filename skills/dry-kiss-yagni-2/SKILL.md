@@ -1,6 +1,6 @@
 ---
-name: dry-kiss-yagni
-description: Ревью изменений по принципам DRY, KISS, YAGNI плюс SRP и DIP, имена и комментарии, с проверкой баланса: спорное выносит человеку. Используй в конце задачи перед коммитом или PR. Триггеры (RU) «dry kiss yagni», «проверь принципы», «проверь на переусложнение», «нет ли лишнего кода», «проверь имена и комментарии», «проверь SRP и DIP», «бизнес-логика в роутах», «/dry-kiss-yagni»; (EN) "dry kiss yagni review", "check for overengineering", "dead code check", "naming and comments review", "SRP DIP review".
+name: dry-kiss-yagni-2
+description: Версия 2 скилла dry-kiss-yagni. Ревью изменений по DRY, KISS, YAGNI плюс SRP и DIP, имена и комментарии, с проверкой баланса: спорное выносит человеку. Используй в конце задачи перед коммитом или PR. Триггеры (RU) «/dry-kiss-yagni-2», «dry kiss yagni 2», «проверь SRP и DIP», «бизнес-логика в роутах», «проверь на переусложнение и связанность», «ревью по принципам с SRP»; (EN) "dry-kiss-yagni-2", "KISS DRY YAGNI SRP DIP review", "check for overengineering and coupling".
 ---
 
 # Ревью по принципам: KISS / DRY / YAGNI / SRP / DIP
