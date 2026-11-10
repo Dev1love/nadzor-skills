@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Магазин</title>
+  </head>
+  <body>
+    <header>
+      <h1>Магазин</h1>
+      <a id="admin-link" href="#admin" hidden>Админка</a>
+    </header>
+
+    <form id="login-form">
+      <input name="email" type="email" placeholder="Email" required />
+      <input name="password" type="password" placeholder="Пароль" required />
+      <button type="submit">Войти</button>
+    </form>
+
+    <ul id="products"></ul>
+
+    <form id="checkout-form" hidden>
+      <input name="address" placeholder="Адрес" required />
+      <input name="phone" placeholder="Телефон" required />
+      <select name="zone">
+        <option value="msk">Москва</option>
+        <option value="spb">Санкт-Петербург</option>
+        <option value="other">Другой город</option>
+      </select>
+      <input name="promoCode" placeholder="Промокод" />
+      <button type="submit">Оформить и оплатить</button>
+    </form>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

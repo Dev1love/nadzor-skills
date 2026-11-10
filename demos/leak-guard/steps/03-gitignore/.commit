@@ -1,0 +1,4 @@
+branch=main
+who=dev
+date=2026-09-22T09:00:00+03:00
+message=убрал .env
