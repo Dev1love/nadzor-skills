@@ -10,7 +10,7 @@ DEMO="${1:?usage: run.sh <demo> [--headless]}"
 MODE="${2:-}"
 PROMPT="/$DEMO $(cat "$ROOT/$DEMO/prompt.txt")"
 
-REPO="$(mktemp -d "${TMPDIR:-/tmp}/nadzor-$DEMO.XXXX")/repo"
+REPO="$(mktemp -d "${TMPDIR:-/tmp}/tech-check-$DEMO.XXXX")/repo"
 "$ROOT/build.sh" "$DEMO" "$REPO" >/dev/null
 mkdir -p "$REPO/.claude/skills"
 cp -R "$ROOT/../skills/$DEMO" "$REPO/.claude/skills/"
@@ -30,7 +30,7 @@ if results:
     print(f"\n---\ncost: ${cost:.2f}")
 '
 else
-  # NADZOR_CLAUDE_FLAGS: extra flags for the interactive session (record.sh uses it)
-  read -r -a FLAGS <<< "${NADZOR_CLAUDE_FLAGS:-}"
+  # TECH_CHECK_CLAUDE_FLAGS: extra flags for the interactive session (record.sh uses it)
+  read -r -a FLAGS <<< "${TECH_CHECK_CLAUDE_FLAGS:-}"
   exec claude ${FLAGS[@]+"${FLAGS[@]}"} "$PROMPT"
 fi

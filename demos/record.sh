@@ -11,7 +11,7 @@ DEMO="${1:?usage: record.sh <demo> <out-dir>}"
 OUT="${2:?usage: record.sh <demo> <out-dir>}"
 COLS=110
 ROWS=40
-SESSION="nadzor-rec-$DEMO"
+SESSION="tech-check-rec-$DEMO"
 mkdir -p "$OUT"
 OUT="$(cd "$OUT" && pwd)"
 CAST="$OUT/$DEMO.cast"
@@ -19,7 +19,7 @@ CAST="$OUT/$DEMO.cast"
 # Recording flags: no permission prompts, no personal status line.
 FLAGS="--permission-mode bypassPermissions --settings $ROOT/recording-settings.json"
 tmux new-session -d -s "$SESSION" -x "$COLS" -y "$ROWS" \
-  "cd '$ROOT/..' && TMPDIR=/tmp NADZOR_CLAUDE_FLAGS='$FLAGS' asciinema rec -q --overwrite -i 1.5 --window-size ${COLS}x${ROWS} -c '$ROOT/run.sh $DEMO' '$CAST'"
+  "cd '$ROOT/..' && TMPDIR=/tmp TECH_CHECK_CLAUDE_FLAGS='$FLAGS' asciinema rec -q --overwrite -i 1.5 --window-size ${COLS}x${ROWS} -c '$ROOT/run.sh $DEMO' '$CAST'"
 
 screen() { tmux capture-pane -p -t "$SESSION" 2>/dev/null; }
 
@@ -27,7 +27,7 @@ screen() { tmux capture-pane -p -t "$SESSION" 2>/dev/null; }
 REPO=""
 for _ in $(seq 1 90); do
   s="$(screen)" || break
-  [ -n "$REPO" ] || REPO="$(grep -oE "/tmp/nadzor-$DEMO\.[A-Za-z0-9]+/repo" <<<"$s" | head -1 || true)"
+  [ -n "$REPO" ] || REPO="$(grep -oE "/tmp/tech-check-$DEMO\.[A-Za-z0-9]+/repo" <<<"$s" | head -1 || true)"
   if grep -q "trust this folder" <<<"$s"; then
     tmux send-keys -t "$SESSION" Down; sleep 0.5; tmux send-keys -t "$SESSION" Enter
     break

@@ -1,4 +1,4 @@
-# nadzor-skills
+# tech-check-skills
 
 Скиллы для Claude Code: технадзор за кодом, который пишет ИИ-агент.
 
@@ -29,7 +29,7 @@
 Все скиллы для своего пользователя, одной командой (нужен доступ к репозиторию):
 
 ```bash
-gh repo clone Dev1love/nadzor-skills /tmp/nadzor-skills && mkdir -p ~/.claude/skills && cp -R /tmp/nadzor-skills/skills/* ~/.claude/skills/
+gh repo clone Dev1love/tech-check-skills /tmp/tech-check-skills && mkdir -p ~/.claude/skills && cp -R /tmp/tech-check-skills/skills/* ~/.claude/skills/
 ```
 
 Только в один проект: копировать в `.claude/skills/` проекта вместо `~/.claude/skills/`.
@@ -37,7 +37,7 @@ gh repo clone Dev1love/nadzor-skills /tmp/nadzor-skills && mkdir -p ~/.claude/sk
 Если репозиторий публичный, можно без клона:
 
 ```bash
-mkdir -p ~/.claude/skills && curl -sL https://github.com/Dev1love/nadzor-skills/archive/refs/heads/main.tar.gz | tar xz --strip-components=2 -C ~/.claude/skills nadzor-skills-main/skills
+mkdir -p ~/.claude/skills && curl -sL https://github.com/Dev1love/tech-check-skills/archive/refs/heads/main.tar.gz | tar xz --strip-components=2 -C ~/.claude/skills tech-check-skills-main/skills
 ```
 
 ## Как запускать

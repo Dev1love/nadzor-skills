@@ -1,7 +1,7 @@
-# Copy to .github/workflows/nadzor-gate.yml together with ci/gate.sh, then make
-# "nadzor-gate" a required status check: Settings → Branches → branch protection
-# rule for main → Require status checks to pass → nadzor-gate.
-name: nadzor-gate
+# Copy to .github/workflows/tech-check-gate.yml together with ci/gate.sh, then make
+# "tech-check-gate" a required status check: Settings → Branches → branch protection
+# rule for main → Require status checks to pass → tech-check-gate.
+name: tech-check-gate
 
 on:
   pull_request:
@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 jobs:
-  nadzor-gate:
+  tech-check-gate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

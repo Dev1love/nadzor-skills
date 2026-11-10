@@ -8,8 +8,8 @@
 | Тесты (`npm test`, `pytest` или `make test`) | хоть один упал | есть пропущенные; команды тестов нет |
 
 ## Подключить
-1. Скопировать `ci/gate.sh` в проект (путь `ci/gate.sh`) и `ci/nadzor-gate.yml` в `.github/workflows/`.
-2. В настройках репозитория сделать проверку обязательной: Settings → Branches → правило для `main` → Require status checks to pass → `nadzor-gate`.
+1. Скопировать `ci/gate.sh` в проект (путь `ci/gate.sh`) и `ci/tech-check-gate.yml` в `.github/workflows/`.
+2. В настройках репозитория сделать проверку обязательной: Settings → Branches → правило для `main` → Require status checks to pass → `tech-check-gate`.
 
 Локально то же самое: `ci/gate.sh origin/main`.
 
