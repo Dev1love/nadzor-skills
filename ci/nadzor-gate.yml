@@ -1,0 +1,35 @@
+# Copy to .github/workflows/nadzor-gate.yml together with ci/gate.sh, then make
+# "nadzor-gate" a required status check: Settings → Branches → branch protection
+# rule for main → Require status checks to pass → nadzor-gate.
+name: nadzor-gate
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  nadzor-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # the secret scan needs the PR's commits, not just the last one
+
+      - uses: actions/setup-node@v4
+        if: hashFiles('package.json') != ''
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        if: hashFiles('package-lock.json') != ''
+        run: npm ci
+
+      - name: Install gitleaks
+        run: |
+          curl -sSfL https://github.com/gitleaks/gitleaks/releases/download/v8.30.0/gitleaks_8.30.0_linux_x64.tar.gz \
+            | tar -xz -C /usr/local/bin gitleaks
+
+      - name: Gate
+        run: bash ci/gate.sh "origin/${{ github.base_ref }}"
