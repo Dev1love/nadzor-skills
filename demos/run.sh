@@ -30,5 +30,7 @@ if results:
     print(f"\n---\ncost: ${cost:.2f}")
 '
 else
-  exec claude "$PROMPT"
+  # NADZOR_CLAUDE_FLAGS: extra flags for the interactive session (record.sh uses it)
+  read -r -a FLAGS <<< "${NADZOR_CLAUDE_FLAGS:-}"
+  exec claude ${FLAGS[@]+"${FLAGS[@]}"} "$PROMPT"
 fi

@@ -1,7 +1,7 @@
-# The demo shop in examples/ leaks fake keys on purpose: that is what the skills are tested on.
+# examples/ and demos/ leak fake keys on purpose: that is what the skills are tested and shown on.
 [extend]
 useDefault = true
 
 [allowlist]
 description = "intentional fake secrets of the demo shop"
-paths = ['''^examples/''']
+paths = ['''^examples/''', '''^demos/''']

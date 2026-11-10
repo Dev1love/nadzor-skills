@@ -26,6 +26,30 @@ demos/run.sh verify-claims --headless   # репетиция: отчёт в те
 
 Время и цена прогона каждого демо: в конце его `sample-report.md`. Если живой прогон не успевает, покажите `sample-report.md`.
 
+## Записи для слайдов
+
+В [`recordings/`](recordings/) у каждого демо три файла: настоящий интерфейс Claude Code, ускоренный в 2 раза, паузы сжаты, последний кадр с отчётом держится 12 секунд.
+- `.mp4`: для Keynote, PowerPoint, Google Slides.
+- `.gif`: для веб-слайдов и README.
+- `.cast`: исходная запись; её можно проиграть в терминале (`asciinema play recordings/test-auditor.cast`) или открыть плеером asciinema на сайте.
+
+| Демо | Длина (×2) |
+|---|---|
+| verify-claims | 36 с |
+| test-auditor | 49 с |
+| principles-review | 40 с |
+| security-audit | 90 с |
+| leak-guard | 21 с |
+| task-trail | 23 с |
+
+Последний кадр показывает конец отчёта, а вердикт и главная таблица пролистываются по ходу. Для слайда с вердиктом удобнее взять текст из `sample-report.md` демо.
+
+Перезаписать (нужны `tmux`, `asciinema`, `agg`, `ffmpeg`):
+```bash
+demos/record.sh test-auditor demos/recordings
+```
+Скрипт сам отвечает на вопрос о доверии папке, ждёт итоговый отчёт в журнале сессии, обрезает запись до выхода, убирает из `.cast` пути машины и прячет имя пользователя ОС. Статус-бар отключён через `recording-settings.json`. Результат каждый раз немного разный: модель не детерминирована.
+
 ## Пересобрать демо
 ```bash
 demos/build.sh security-audit /tmp/notes   # собрать репозиторий с историей
